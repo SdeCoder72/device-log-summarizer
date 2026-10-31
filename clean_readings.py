@@ -2,7 +2,7 @@ import math
 
 def clean_readings(values):
     cleaned = []
-    if values is None:
+    if not values:
         return cleaned
     for val in values:
         if val is None or isinstance(val, bool):
@@ -17,7 +17,7 @@ def clean_readings(values):
     return cleaned
 
 assert clean_readings(["12.5", None, -3, "abc", 700]) == [12.5, 500.0]
-assert clean_readings([]) == []
+assert clean_readings(0) == []
 assert clean_readings([None, "x", -1]) == []
 assert clean_readings([0, True, "nan", 501]) == [0.0, 500.0]
 
