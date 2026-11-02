@@ -11,7 +11,7 @@ def load_stats(path):
                 try:
                     temp = float(row["temperature"])
                     dev  = row["device_id"].strip()
-                    status = row["status"]
+                    status = row["status"].strip().upper()
                 except (TypeError, ValueError, KeyError, AttributeError) as e:
                     print("Skipped: ", row, "-> ", repr(e))
                     continue
